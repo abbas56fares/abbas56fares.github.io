@@ -44,8 +44,8 @@ export default function Home() {
             {/* Social Links */}
             <div className="flex gap-4">
               {[
-                { icon: "🐙", href: "", label: "GitHub" },
-                { icon: "💼", href: "", label: "LinkedIn" },
+                { icon: "🐙", href: "https://github.com/abbas56fares/", label: "GitHub" },
+                { icon: "💼", href: "https://www.linkedin.com/in/abbas-fares-934781304", label: "LinkedIn" },
                 {
                   icon: "✉️",
                   href: "mailto:@abbasfares56@gmail.com",
@@ -71,7 +71,7 @@ export default function Home() {
             <p>
               © {new Date().getFullYear()} Abbas Fares. All rights reserved.
             </p>
-            <p>Built with Next.js, TypeScript & Tailwind CSS</p>
+           
           </div>
         </div>
       </footer>
