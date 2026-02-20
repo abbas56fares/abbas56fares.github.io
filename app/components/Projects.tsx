@@ -76,7 +76,7 @@ const projects: Project[] = [
     gradient: "from-blue-500 via-indigo-500 to-purple-500",
     icon: "📱",
     github: "https://github.com/abbas56fares/menu-admin-portal",
-    // demo: "https://menu-admin-portal-fnjxa9.laravel.cloud/",
+    demo: "https://menu-static.laravel.cloud/",
   },
 ];
 
