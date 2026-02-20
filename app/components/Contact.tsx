@@ -219,7 +219,7 @@ export default function Contact() {
                 >
                   <div className="flex flex-col items-center text-center gap-3">
                     <div
-                      className={`w-12 h-12 rounded-xl bg-linear-to-br ${social.gradient} flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}
+                      className={`w-12 h-12 rounded-xl bg-linear-to-br ${social.gradient} flex items-center justify-center text-2xl group-hover:scale-110 transition-all duration-300`}
                     >
                       {social.icon}
                     </div>
