@@ -437,11 +437,35 @@ export default function ChatBot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-150 bg-white rounded-2xl shadow-2xl flex flex-col z-50 animate-fade-in">
-          {/* Header */}
-          <div className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-4 rounded-t-2xl">
-            <h3 className="text-lg font-bold">Abbas Fares AI Assistant</h3>
-            <p className="text-sm opacity-90">Ask me anything about Abbas!</p>
+        <div
+          className="fixed bottom-6 left-3 right-3 sm:left-auto sm:right-6 sm:w-96 h-96 sm:h-150 max-h-[calc(100vh-120px)] bg-white rounded-2xl shadow-2xl flex flex-col z-50 animate-fade-in"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header with Close Button */}
+          <div className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-4 rounded-t-2xl flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-bold">Abbas Fares AI Assistant</h3>
+              <p className="text-sm opacity-90">Ask me anything about Abbas!</p>
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="shrink-0 text-white hover:bg-white/20 p-2 rounded-lg transition-colors"
+              aria-label="Close chat"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
           </div>
 
           {/* Messages */}
