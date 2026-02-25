@@ -5,7 +5,7 @@ import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 export default function Home() {
   return (
     <main className="relative w-full bg-[#0a0a0f] text-white overflow-x-hidden">
@@ -23,7 +23,7 @@ export default function Home() {
       <Contact />
 
       {/* Footer */}
-      <footer className="relative w-full py-16 px-4 border-t border-white/5 overflow-hidden">
+      <footer className="relative w-full py-6 px-4 border-t border-white/5 overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-linear-to-t from-indigo-500/5 to-transparent" />
 
@@ -39,15 +39,19 @@ export default function Home() {
               <p className="text-gray-400 text-sm">
                 Full-Stack Developer • Problem Solver
               </p>
+              <br />
+               <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Abbas Fares. All rights reserved.
+            </p>
             </div>
 
             {/* Social Links */}
             <div className="flex gap-4">
               {[
-                { icon: "🐙", href: "https://github.com/abbas56fares/", label: "GitHub" },
-                { icon: "💼", href: "https://www.linkedin.com/in/abbas-fares-934781304", label: "LinkedIn" },
+                { icon: <FaGithub className="w-5 h-5 hover:text-gray-400 transition-colors" />, href: "https://github.com/abbas56fares/", label: "GitHub" },
+                { icon: <FaLinkedin className="w-5 h-5 text-[#0077B5] hover:opacity-80 transition-opacity" />, href: "https://www.linkedin.com/in/abbas-fares-934781304", label: "LinkedIn" },
                 {
-                  icon: "✉️",
+                  icon: <FaEnvelope className="w-5 h-5 text-gray-600 hover:text-red-500 transition-colors" />,
                   href: "mailto:@abbasfares56@gmail.com",
                   label: "Email",
                 },
@@ -67,12 +71,10 @@ export default function Home() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-            <p>
-              © {new Date().getFullYear()} Abbas Fares. All rights reserved.
-            </p>
+          {/* <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
            
-          </div>
+           
+          </div> */}
         </div>
       </footer>
 

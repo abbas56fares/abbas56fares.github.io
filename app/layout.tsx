@@ -13,34 +13,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abbas Fares | Full-Stack Developer & AI Enthusiast",
+  title: "Abbas Fares | Full-Stack Developer & AI ",
   description:
-    "Professional portfolio of Abbas Fares - Full-stack web developer specializing in React, Next.js, and AI/ML technologies.",
+    "Professional portfolio of Abbas Fares - Full-stack web developer specializing in Larave, Vue, React, Next.js, and AI/ML technologies.",
   keywords: [
     "Abbas Fares",
+    "VILT Stack",
     "Web Developer",
     "Full-Stack",
+    "Laravel",
+    "Frontend",
+    "Backend",
     "React",
     "Next.js",
     "AI",
     "ML",
-    "Portfolio",
   ],
   authors: [{ name: "Abbas Fares" }],
   creator: "Abbas Fares",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://abbasfares.dev",
     siteName: "Abbas Fares Portfolio",
-    title: "Abbas Fares | Full-Stack Developer & AI Enthusiast",
+    title: "Abbas Fares | Full-Stack Developer & AI",
     description:
       "Professional portfolio showcasing web development and AI/ML projects",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Abbas Fares | Full-Stack Developer",
-    description: "Full-stack web developer and AI enthusiast",
   },
 };
 
