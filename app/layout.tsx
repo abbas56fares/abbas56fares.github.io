@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abbas Fares | Full-Stack Developer & AI ",
+  title: "Abbas Fares | Full-Stack Web Developer & AI ",
   description:
     "Professional portfolio of Abbas Fares - Full-stack web developer specializing in Larave, Vue, React, Next.js, and AI/ML technologies.",
   keywords: [

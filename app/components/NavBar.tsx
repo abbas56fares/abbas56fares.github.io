@@ -1,32 +1,71 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const NAV_LINKS = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#home");
 
-  const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ];
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + 180;
+      let currentSection = "#home";
+
+      NAV_LINKS.forEach((link) => {
+        const section = document.querySelector(link.href) as HTMLElement | null;
+        if (section && section.offsetTop <= scrollPosition) {
+          currentSection = link.href;
+        }
+      });
+
+      setActiveHref(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateActiveSection);
+  }, []);
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4">
       {/* --- DESKTOP NAV: Stays as a wide bar --- */}
-      <div className="hidden md:flex justify-center items-center glass rounded-full px-8 py-4">
+      <div
+        className="hidden md:flex justify-center items-center glass rounded-full px-8 py-4 border border-white/20"
+        style={{
+          background: "rgba(19, 19, 26, 0.72)",
+          backdropFilter: "blur(28px) saturate(180%)",
+          WebkitBackdropFilter: "blur(28px) saturate(180%)",
+        }}
+      >
         <div className="flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="relative text-gray-300 hover:text-indigo-400 font-medium transition-colors group"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = activeHref === link.href;
+
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative font-medium transition-colors group ${
+                  isActive ? "text-indigo-400" : "text-gray-300 hover:text-indigo-400"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </div>
       </div>
 
@@ -35,8 +74,13 @@ export default function NavBar() {
         {/* The Toggle Button: Styled as a circle when closed */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`glass flex items-center justify-center transition-all duration-300 active:scale-95 text-white hover:text-indigo-400 
+          className={`glass flex items-center justify-center transition-all duration-300 active:scale-95 text-white hover:text-indigo-400 border border-white/20
             ${isOpen ? "rounded-full p-2 mb-2" : "w-12 h-12 rounded-full"}`}
+          style={{
+            background: "rgba(19, 19, 26, 0.72)",
+            backdropFilter: "blur(28px) saturate(180%)",
+            WebkitBackdropFilter: "blur(28px) saturate(180%)",
+          }}
         >
           <svg
             className="w-6 h-6"
@@ -64,19 +108,36 @@ export default function NavBar() {
 
         {/* The Menu Content: Opens as a full-width box */}
         {isOpen && (
-          <div className="glass w-full rounded-2xl p-6 animate-fade-in border border-white/10">
+          <div
+            className="glass w-full rounded-2xl p-6 animate-fade-in border border-white/20"
+            style={{
+              background: "rgba(19, 19, 26, 0.78)",
+              backdropFilter: "blur(30px) saturate(180%)",
+              WebkitBackdropFilter: "blur(30px) saturate(180%)",
+            }}
+          >
             <div className="flex flex-col gap-3 ">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="relative text-gray-300 hover:text-indigo-400 font-medium transition-colors group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
-                </a>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const isActive = activeHref === link.href;
+
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`relative font-medium transition-colors group ${
+                      isActive ? "text-indigo-400" : "text-gray-300 hover:text-indigo-400"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 transition-all duration-300 ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}

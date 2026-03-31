@@ -520,7 +520,7 @@ export default function ChatBot() {
               <button
                 onClick={handleSend}
                 disabled={!input.trim()}
-                className="w-10 h-10 bg-linear-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-10 h-10 bg-white text-indigo-600 border border-indigo-200 rounded-full flex items-center justify-center transition-transform disabled:opacity-50 disabled:cursor-not-allowed rotate-90"
               >
                 <svg
                   className="w-5 h-5"

@@ -99,8 +99,7 @@ export default function Hero() {
         <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
           Building cutting-edge web applications with modern technologies.
           <br />
-          Passionate about AI/ML, security, and creating exceptional user
-          experiences.
+       
         </p>
 
         {/* CTA buttons */}
